@@ -15,11 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     connectiondialog.cpp \
-    sqlconnection.cpp
+    sqlconnection.cpp \
+    employee.cpp
 
 HEADERS  += mainwindow.h \
     connectiondialog.h \
-    sqlconnection.h
+    sqlconnection.h \
+    employee.h
 
 FORMS    += mainwindow.ui \
     connectiondialog.ui

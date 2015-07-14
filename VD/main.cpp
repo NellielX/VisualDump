@@ -4,7 +4,6 @@
 #include "sqlconnection.h"
 #include <QDial>
 #include <QDebug>
-
 using namespace std;
 
 int main(int argc, char *argv[])
