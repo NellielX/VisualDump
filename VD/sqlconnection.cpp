@@ -31,3 +31,17 @@ bool SqlConnection::createConnection(){
 //    db.setPassword("");
     return db.open();
     }
+
+void SqlConnection::insertEmployee(Employee &emp){
+
+    QSqlQuery query;
+    query.prepare("INSERT INTO employee (firstName, lastName, gender, birthDate) VALUES(?,?,?,?)");
+    query.addBindValue(QVariant(QString(emp.getFirstName().c_str())));
+    query.addBindValue(QVariant(QString(emp.getLastName().c_str())));
+    query.addBindValue(emp.getGender());
+    query.addBindValue(emp.getBirthDate()); /* Insert into table employee then set id to employee with lastinsertID*/
+    if (query.exec()) emp.setId(query.lastInsertId().toInt());
+}
+
+
+

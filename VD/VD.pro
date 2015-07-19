@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui sql
+CONFIG += c++11
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -16,15 +17,19 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     connectiondialog.cpp \
     sqlconnection.cpp \
-    employee.cpp
+    employee.cpp \
+    facedetection.cpp \
+    facerecogition.cpp
 
 HEADERS  += mainwindow.h \
     connectiondialog.h \
     sqlconnection.h \
-    employee.h
+    employee.h \
+    facedetection.h \
+    facerecogition.h
 
 FORMS    += mainwindow.ui \
-    connectiondialog.ui
+    connectiondialog.ui \
 
 INCLUDEPATH += C:\\opencv\\mybuild\\install\\include
 
@@ -45,5 +50,5 @@ LIBS += -LC:\\opencv\\mybuild\\lib \
 -lopencv_videostab300 \
 -lopencv_imgcodecs300 \
 -lopencv_shape300 \
--lopencv_videoio300
-
+-lopencv_videoio300 \
+-lopencv_face300

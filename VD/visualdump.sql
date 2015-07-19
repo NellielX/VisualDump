@@ -1,48 +1,46 @@
--- phpMyAdmin SQL Dump
--- version 4.0.4
--- http://www.phpmyadmin.net
---
--- Client: localhost
--- Généré le: Mar 14 Juillet 2015 à 14:52
--- Version du serveur: 10.0.19-MariaDB
--- Version de PHP: 5.4.12
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
+-- --------------------------------------------------------
+-- Hôte :                        127.0.0.1
+-- Version du serveur:           10.0.19-MariaDB - mariadb.org binary distribution
+-- SE du serveur:                Win64
+-- HeidiSQL Version:             9.2.0.4947
+-- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
---
--- Base de données: `visualdump`
---
-CREATE DATABASE IF NOT EXISTS `visualdump` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+-- Export de la structure de la base pour visualdump
+CREATE DATABASE IF NOT EXISTS `visualdump` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `visualdump`;
 
--- --------------------------------------------------------
 
---
--- Structure de la table `employee`
---
-
+-- Export de la structure de table visualdump. employee
 CREATE TABLE IF NOT EXISTS `employee` (
   `idEmployee` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `idService` int(11) NOT NULL,
   `firstName` text NOT NULL,
   `lastName` text NOT NULL,
-  `birthDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `gender` tinyint(4) NOT NULL,
+  `birthDate` date NOT NULL,
   PRIMARY KEY (`idEmployee`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
+-- L'exportation de données n'était pas sélectionnée.
 
---
--- Structure de la table `vsapiuser`
---
 
+-- Export de la structure de table visualdump. recongitioninfo
+CREATE TABLE IF NOT EXISTS `recongitioninfo` (
+  `idEmployee` bigint(20) unsigned NOT NULL,
+  `timestampValue` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`idEmployee`,`timestampValue`,`status`),
+  CONSTRAINT `FK1_iEmployee` FOREIGN KEY (`idEmployee`) REFERENCES `employee` (`idEmployee`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- L'exportation de données n'était pas sélectionnée.
+
+
+-- Export de la structure de table visualdump. vsapiuser
 CREATE TABLE IF NOT EXISTS `vsapiuser` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `firstName` text NOT NULL,
@@ -50,15 +48,9 @@ CREATE TABLE IF NOT EXISTS `vsapiuser` (
   `username` text NOT NULL,
   `password` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Contenu de la table `vsapiuser`
---
-
-INSERT INTO `vsapiuser` (`id`, `firstName`, `lastName`, `username`, `password`) VALUES
-(1, 'Mathieu', 'Pequin', 'mpequin', '123456789');
-
+-- L'exportation de données n'était pas sélectionnée.
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
