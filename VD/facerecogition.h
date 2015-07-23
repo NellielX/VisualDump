@@ -28,6 +28,7 @@ public:
     int im_width;
     int im_height;
     void loadImages();
+    bool computed;
 
 private:
     vector<Mat> images;
@@ -35,7 +36,7 @@ private:
 
 private:
 
-    void read_csv(const string &filename, char separator=';');
+    void read_files();
 
 };
 

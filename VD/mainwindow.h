@@ -40,11 +40,14 @@ private:
     int nb_enr;
     Ui::MainWindow *ui;
     cv::VideoCapture capWebcam;         // Capture object to use with webcam
-    cv::CascadeClassifier faceCascade;
+    cv::CascadeClassifier faceCascade; //harrcascade frontal face classifier
+    cv::CascadeClassifier eye_cascade; // haarcascasde eye classifier;
     cv::Mat matOriginal;                // input image
     cv::Mat greyScaleFrame; // grey sclae frame
-    vector<cv::Mat> recordedImages;
-    vector<Employee> emps;
+    vector<cv::Mat> recordedImages; //Vector for recorded pictures
+    cv::Mat croppedImage;
+    vector<Employee> emps; //
+    std::list<int> noseQueue;
 
     FaceRecogition faceRec;
 
@@ -54,7 +57,10 @@ private:
 
     void exitProgram();                    // function prototype
     void saveImages();
-
+    Mat cropFace(cv::Mat srcImg, int eyeLeftX, int eyeLeftY, int eyeRightX, int eyeRightY, int width, int height, int faceX, int faceY, int faceWidth, int faceHeight);
+    void rotate(Mat& src, double angle, Mat& dst);
+    float gradienty(Mat frame);
+    int plotHistogram(Mat image);
 };
 
 #endif // MAINWINDOW_H

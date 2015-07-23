@@ -43,5 +43,19 @@ void SqlConnection::insertEmployee(Employee &emp){
     if (query.exec()) emp.setId(query.lastInsertId().toInt());
 }
 
+vector<int> SqlConnection::getEmployeeIdList(){
+    vector<int> empList;
+    QSqlQuery query;
+    query.prepare("SELECT idEmployee FROM employee");
+    if(!query.exec()){
+        qDebug() << query.lastError();
+    }
+    while(query.next())
+    {
+        empList.push_back(query.value(0).toInt());
+    }
+    return empList;
+}
+
 
 

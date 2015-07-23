@@ -12,6 +12,7 @@ public:
     static bool isUserAcessGranted(const QString &username, const QString &password);
     static bool createConnection();
     static void insertEmployee(Employee &emp);
+    static vector<int> getEmployeeIdList();
 };
 
 #endif // SQLCONNECTION_H

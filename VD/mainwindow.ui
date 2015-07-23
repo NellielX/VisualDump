@@ -47,7 +47,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideNone</enum>
@@ -103,13 +103,6 @@
           </property>
           <property name="text">
            <string/>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="pushButton">
-          <property name="text">
-           <string>PushButton</string>
           </property>
          </widget>
         </item>
@@ -266,7 +259,7 @@
            <item>
             <widget class="QPushButton" name="pushButton_2">
              <property name="text">
-              <string>Enregistrer photo</string>
+              <string>Capturer photo</string>
              </property>
             </widget>
            </item>
